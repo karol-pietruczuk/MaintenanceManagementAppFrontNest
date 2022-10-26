@@ -1,0 +1,11 @@
+.common-loading-box {
+    position: absolute;
+    z-index: 10;
+    top: 200px;
+    left: calc(50% - 41px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+}

@@ -6,5 +6,6 @@
         "../MaintenanceManagementAppBackNest/src/types"
       ]
     }
-  }
+  },
+  "extends": "../MaintenanceManagementAppBackNest/tsconfig.json"
 }
