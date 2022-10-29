@@ -1,21 +1,12 @@
-import { Input, Button, useToast, ToastId } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Input, Button } from "@chakra-ui/react";
 import { useLogin } from "../../../../../hooks/useLogin";
-import './LoginForm.css';
 import { CommonLoadingBox } from "../../../../common/CommonLoadingBox/CommonLoadingBox";
-import { useEffect, useRef, useState } from "react";
+import './LoginForm.css';
 
 export const LoginForm = () => {
-  const {loginData, setEmail, setPwd, submitLogin, loading, error, setError} = useLogin();
+  const {loginData, setEmail, setPwd, submitLogin, loading} = useLogin();
   const [visible, setVisible] = useState(false);
-  const toast = useToast()
-  const toastIdRef = useRef<ToastId>()
-
-  useEffect(() => {
-    if (error) {
-      toastIdRef.current = toast({ description: error, isClosable: true, status: "error" });
-      setError('');
-    }
-  },[error])
 
   return (
     <form

@@ -1,6 +1,6 @@
-import './LayoutLogin.css';
-import { CommonLogoHeader } from "../../common/CommonLogoHeader/CommonLogoHeader";
+import React from 'react';
 import { LoginForm } from "./extractedComponents/LoginForm/LoginForm";
+import { CommonLogoHeader } from "../../common/CommonLogoHeader/CommonLogoHeader";
 import { Footer } from "../../common/CommonFooter/CommonFooter";
 import './LayoutLogin.css';
 

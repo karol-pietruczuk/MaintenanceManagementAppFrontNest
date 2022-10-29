@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import { Spinner } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { asyncTimeout } from "../../../utils/accessoryFunctions";
 import './CommonLoadingBox.css';
 

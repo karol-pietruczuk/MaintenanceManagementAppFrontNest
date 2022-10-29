@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import { App } from "./App";
+import { extendTheme, ChakraProvider, ThemeConfig } from "@chakra-ui/react";
+import {Provider} from 'react-redux';
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import { extendTheme, ChakraProvider, ThemeConfig } from "@chakra-ui/react";
+import { store } from "./redux-toolkit/store";
+import { App } from "./App";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
 const mainTheme = extendTheme({
   config: {
@@ -21,7 +24,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider theme={mainTheme} resetCSS={true}>
-      <App />
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>
 );
