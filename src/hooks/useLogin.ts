@@ -1,10 +1,10 @@
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { ToastId, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { QueryApi } from "../utils/queryApi";
 import { asyncTimeout } from "../utils/accessoryFunctions";
 import { clearAuthData, setAuthData } from "../redux-toolkit/features/auth/authSlice";
 import { useAppDispatch } from "../redux-toolkit/redux-hooks";
+import { QueryApi } from "../utils/queryApi";
 
 
 export const useLogin = (email = '', pwd = '') => {
@@ -26,7 +26,7 @@ export const useLogin = (email = '', pwd = '') => {
   const submitLogin = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const [res] = await Promise.all([QueryApi.login(loginData), asyncTimeout(500)])
+    const [res] = await Promise.all([QueryApi.login(loginData, dispatch), asyncTimeout(500)])
     setLoginData({email: '', pwd: ''});
     setLoading(false);
     await asyncTimeout(500);
@@ -36,7 +36,7 @@ export const useLogin = (email = '', pwd = '') => {
       return;
     }
     dispatch(setAuthData(res));
-    toastIdRef.current = toast({ description: 'successfully logged in', isClosable: true, status: "success", duration: 1000 });
+    toastIdRef.current = toast({ description: 'successfully logged in', isClosable: true, status: "success"});
     await asyncTimeout(1000);
     navigate('/task');
   }
