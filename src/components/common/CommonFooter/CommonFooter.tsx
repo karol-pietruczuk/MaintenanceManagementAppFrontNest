@@ -1,7 +1,7 @@
 import React from "react";
 import './CommonFooter.css';
 
-export const Footer = () => {
+export const CommonFooter = () => {
   return (
     <p
       className="common_footer"

@@ -1,11 +1,35 @@
 .common-loading-box {
     position: absolute;
     z-index: 10;
-    top: 200px;
+    top: 85%;
     left: calc(50% - 41px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: opacity 0.5s ease-in-out;
+}
+
+@media (min-height: 640px) {
+    .common-loading-box {
+        top: 86%;
+    }
+}
+
+@media (min-height: 860px) {
+    .common-loading-box {
+        top: 87%;
+    }
+}
+
+@media (min-height: 1024px) {
+    .common-loading-box {
+        top: 88%;
+    }
+}
+
+@media (min-height: 1440px) {
+    .common-loading-box {
+        top: 89%;
+    }
 }

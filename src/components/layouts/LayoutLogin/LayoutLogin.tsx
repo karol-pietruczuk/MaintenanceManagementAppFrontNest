@@ -1,25 +1,23 @@
 import React from 'react';
+import { Progress } from "@chakra-ui/react";
 import { LoginForm } from "./extractedComponents/LoginForm/LoginForm";
 import { CommonLogoHeader } from "../../common/CommonLogoHeader/CommonLogoHeader";
-import { Footer } from "../../common/CommonFooter/CommonFooter";
-import { Progress } from "@chakra-ui/react";
-import './LayoutLogin.css';
+import { CommonFooter } from "../../common/CommonFooter/CommonFooter";
 import { useAppSelector } from "../../../redux-toolkit/redux-hooks";
 import { selectLoading } from "../../../redux-toolkit/features/loading/loadingSlice";
+import { CommonLoadingBox } from "../../common/CommonLoadingBox/CommonLoadingBox";
+import './LayoutLogin.css';
 
 export const LayoutLogin = () => {
-  const loading = useAppSelector(selectLoading);
+  const { progress } = useAppSelector(selectLoading);
   return (
     <div className={"layout_login"}>
-      <Progress size="xs" value={loading.progress} width={"100vw"}
+      <Progress size="xs" value={progress} width={"100vw"}
                 style={{ position: "absolute", top: 0, left: 0, background: "transparent" }} />
-      <CommonLogoHeader />
+      <CommonLogoHeader descriptionVisibility={true}/>
       <LoginForm />
-      <Footer />
+      <CommonLoadingBox />
+      <CommonFooter />
     </div>
   );
 }
-
-// @TODO Dostosuj wielkość elementów na dużych ekranach.
-// @TODO Dostosuj RWD.
-// @TODO Dodaj pasek postępu. -> Dodaj feature redux loading {isLoading: boolean, progress: Number <0;100>}

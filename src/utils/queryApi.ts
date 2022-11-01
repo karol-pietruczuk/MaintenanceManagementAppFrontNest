@@ -1,14 +1,13 @@
 import axios from "axios";
+import { Dispatch } from "@reduxjs/toolkit";
 import { AuthLoginRequest, AuthLoginResponse } from "types";
 import { apiURL } from "../config/api";
-import { clearInProgress, setInProgress, setProgress } from "../redux-toolkit/features/loading/loadingSlice";
-import { Dispatch } from "@reduxjs/toolkit";
+import { setProgress } from "../redux-toolkit/features/loading/loadingSlice";
 
 export class QueryApi {
   static async login(loginData: AuthLoginRequest, dispatch: Dispatch): Promise<AuthLoginResponse | Error> {
 
     dispatch(setProgress(0));
-    dispatch(setInProgress());
     const timeout = 20000;
     const timeSlice = 10;
     let progress = 0;
@@ -21,8 +20,6 @@ export class QueryApi {
     try {
       const req = (await axios.post(`${apiURL}/auth`, loginData, {
         withCredentials: true,
-        onDownloadProgress: async () => {
-        },
         timeout
       })).data;
 
@@ -52,7 +49,6 @@ export class QueryApi {
       return req;
     } catch (error: any) {
       clearInterval(reqInterval);
-      //@TODO Check error messages. If frontend server is disabled there is wrong message
       if (error?.response) {
         error.message = "invalid login data";
       } else if (error.code === "ERR_NETWORK") {
@@ -64,7 +60,6 @@ export class QueryApi {
       }
       return error;
     } finally {
-      dispatch(clearInProgress());
       dispatch(setProgress(0));
     }
   }

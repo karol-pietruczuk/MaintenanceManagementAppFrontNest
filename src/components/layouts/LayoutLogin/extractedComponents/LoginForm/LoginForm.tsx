@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Input, Button } from "@chakra-ui/react";
 import { useLogin } from "../../../../../hooks/useLogin";
-import { CommonLoadingBox } from "../../../../common/CommonLoadingBox/CommonLoadingBox";
+import { useAppSelector } from "../../../../../redux-toolkit/redux-hooks";
+import { selectLoading } from "../../../../../redux-toolkit/features/loading/loadingSlice";
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const {loginData, setEmail, setPwd, submitLogin, loading} = useLogin();
-  const [visible, setVisible] = useState(false);
+  const {visible} = useAppSelector(selectLoading);
+  const {loginData, setEmail, setPwd, submitLogin} = useLogin();
 
   return (
     <form
@@ -36,12 +37,11 @@ export const LoginForm = () => {
       <Button
         colorScheme='blue'
         type={"submit"}
-        disabled={visible || loading}
-        style={visible || loading ? {cursor: 'default'} : {cursor: 'pointer'}}
+        disabled={visible}
+        style={visible ? {cursor: 'default'} : {cursor: 'pointer'}}
       >
         login
       </Button>
-      <CommonLoadingBox loading={loading} visible={visible} setVisible={setVisible}/>
     </form>
   )
 }

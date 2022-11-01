@@ -16,8 +16,6 @@ export interface SetAuthData {
   payload: AuthLoginResponse | AuthRefreshResponse;
 }
 
-interface ClearAuthData {}
-
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -27,7 +25,7 @@ export const authSlice = createSlice({
       state.user = action.payload.user;
     },
 
-    clearAuthData: (state, action: ClearAuthData) => {
+    clearAuthData: (state) => {
       state.jwt = initialState.jwt;
       state.user = initialState.user;
     },

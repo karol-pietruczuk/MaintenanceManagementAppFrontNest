@@ -4,7 +4,7 @@ import './CommonLogoHeader.css';
 
 interface Props {
   imageSize?: number;
-  menuMarginTop?: number;
+  menuMarginTop?: string;
   logoFontSize?: number;
   descriptionVisibility?: boolean;
 }
@@ -13,7 +13,7 @@ export const CommonLogoHeader = (props: Props) => {
   return (
     <header
       className={"common_logo_header-header"}
-      style = {{marginTop: props.menuMarginTop !== undefined ? props.menuMarginTop : 60}}
+      style = {props.menuMarginTop && {marginTop: props.menuMarginTop}}
     >
       <img
         className={"common_logo_header-header--img"}
@@ -34,7 +34,7 @@ export const CommonLogoHeader = (props: Props) => {
         className={"common_logo_header-header--h2"}
         style={{
           fontSize: 14,
-          display: !props.descriptionVisibility ? "non2e" : "block"
+          display: !props.descriptionVisibility ? "none" : "block"
         }}
       >
         easier work, better work

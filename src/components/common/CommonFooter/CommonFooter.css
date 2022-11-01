@@ -1,6 +1,4 @@
 .common_footer {
-    position: absolute;
     width: 250px;
-    left: calc(50% - 125px);
-    top: 85vh;
+    margin-top: 85px;
 }
