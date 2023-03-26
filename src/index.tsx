@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { extendTheme, ChakraProvider, ThemeConfig } from "@chakra-ui/react";
 import {Provider} from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux-toolkit/store";
 import { App } from "./App";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
 
 const mainTheme = extendTheme({
   config: {

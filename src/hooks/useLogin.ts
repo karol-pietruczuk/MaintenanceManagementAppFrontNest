@@ -44,6 +44,7 @@ export const useLogin = (email = '', pwd = '') => {
       toastIdRef.current = toast({ description: res.message, isClosable: true, status: "error" });
       return;
     }
+    localStorage.setItem('jwt', res.jwt); //@TODO Think about better place to store refresh jwt
     dispatch(setAuthData(res));
     toastIdRef.current = toast({ description: 'successfully logged in', isClosable: true, status: "success"});
     await asyncTimeout(1000);

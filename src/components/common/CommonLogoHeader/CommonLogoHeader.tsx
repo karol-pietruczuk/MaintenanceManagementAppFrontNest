@@ -7,6 +7,7 @@ interface Props {
   menuMarginTop?: string;
   logoFontSize?: number;
   descriptionVisibility?: boolean;
+  descriptionFontSize?: number;
 }
 
 export const CommonLogoHeader = (props: Props) => {
@@ -33,7 +34,7 @@ export const CommonLogoHeader = (props: Props) => {
       <h2
         className={"common_logo_header-header--h2"}
         style={{
-          fontSize: 14,
+          fontSize: !props.descriptionFontSize ? 14 : props.descriptionFontSize,
           display: !props.descriptionVisibility ? "none" : "block"
         }}
       >
