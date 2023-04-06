@@ -1,7 +1,7 @@
 .common-loading-box {
     position: absolute;
     z-index: 10;
-    top: 85%;
+    top: 84%;
     left: calc(50% - 41px);
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
 
 @media (min-height: 640px) {
     .common-loading-box {
-        top: 86%;
+        top: 81%;
     }
 }
 

@@ -16,7 +16,8 @@ export const CommonFooter = (props: Props) => {
       fontSize={props.fontSize ? props.fontSize : "1em"}
       position='sticky'
       bg={useColorModeValue('white', 'gray.900')}
-      height="14"
+      // height="14"
+      height="8vh"
       borderTop="1px"
       borderTopColor={useColorModeValue('gray.200', 'gray.700')}
       alignItems="center"
