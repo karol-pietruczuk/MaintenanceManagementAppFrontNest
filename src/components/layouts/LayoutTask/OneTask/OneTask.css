@@ -1,0 +1,38 @@
+.task {
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.task_name {
+    white-space: pre-wrap;
+    max-width: 40ch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+
+.task_description {
+    white-space: pre-wrap;
+    max-width: 60ch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+
+.task_location {
+    white-space: pre-wrap;
+    max-width: 30ch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+}
+
+.task_focus {
+    background-color: #283245;
+}
